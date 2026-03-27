@@ -144,7 +144,7 @@ function Gallery() {
           description: "Aplikasi maintenance untuk monitoring tiket, status pekerjaan, dan histori perawatan untuk pelabuhan kapal",
           video: {
             title: "Demo App",
-            src: "/src/assets/gallery/maintenance/screenrecorder.webm",
+            src: "/src/assets/gallery/maintenance/screenrecorder.mp4",
             type: "file",
           },
           shots: [
