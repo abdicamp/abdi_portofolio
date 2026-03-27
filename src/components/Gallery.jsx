@@ -3,6 +3,21 @@ import { useI18n } from "../i18n.jsx";
 
 function Gallery() {
   const { t } = useI18n();
+  const assetMap = useMemo(
+    () =>
+      import.meta.glob("../assets/gallery/**/*.{png,jpg,jpeg,webp,gif,mp4,webm}", {
+        eager: true,
+        import: "default",
+      }),
+    []
+  );
+
+  const resolveAsset = (src) => {
+    if (!src) return src;
+    if (!src.startsWith("/src/assets/")) return src;
+    const key = src.replace("/src/assets/", "../assets/");
+    return assetMap[key] || src;
+  };
 
   const data = useMemo(
     () => ({
@@ -377,7 +392,9 @@ function Gallery() {
                         <button
                           type="button"
                           className="btn btnGhost btnSm"
-                          onClick={() => setActiveVideo({ ...g.video, project: g.project })}
+                          onClick={() =>
+                            setActiveVideo({ ...g.video, project: g.project, src: resolveAsset(g.video.src) })
+                          }
                         >
                           {t("gallery.viewVideo")}
                         </button>
@@ -396,7 +413,7 @@ function Gallery() {
                         onClick={() => setActive({ ...s, project: g.project })}
                       >
                         <div className={`shotThumb ${tab === "mobile" ? "isMobile" : ""}`}>
-                          <img className="galleryImg" src={s.src} alt={s.title} loading="lazy" />
+                          <img className="galleryImg" src={resolveAsset(s.src)} alt={s.title} loading="lazy" />
                         </div>
                         <div className="galleryCap">
                           <div className="galleryTitle">{s.title}</div>
@@ -416,7 +433,9 @@ function Gallery() {
                         <button
                           type="button"
                           className="btn btnGhost btnSm"
-                          onClick={() => setActiveVideo({ ...g.video, project: g.project })}
+                          onClick={() =>
+                            setActiveVideo({ ...g.video, project: g.project, src: resolveAsset(g.video.src) })
+                          }
                         >
                           {t("gallery.viewVideo")}
                         </button>
@@ -453,7 +472,7 @@ function Gallery() {
               </button>
             </div>
             <div className="lightboxMedia">
-              <img className="lightboxImg" src={active.src} alt={active.title} />
+              <img className="lightboxImg" src={resolveAsset(active.src)} alt={active.title} />
             </div>
           </div>
         </div>
@@ -488,7 +507,7 @@ function Gallery() {
                   allowFullScreen
                 />
               ) : (
-                <video className="lightboxVideo" controls preload="metadata" src={activeVideo.src} />
+                <video className="lightboxVideo" controls preload="metadata" src={resolveAsset(activeVideo.src)} />
               )}
             </div>
           </div>
