@@ -170,7 +170,7 @@ const DICT = {
     about: {
       title: "About",
       subtitle:
-        "I’m a Bekasi-based Software Engineer focused on mobile development, web systems, and IoT integrations.",
+        "I’m a Software Engineer focused on mobile development, web systems, and IoT integrations.",
       whatTitle: "What I do",
       whatBody:
         "I build mobile apps (Flutter/React Native), operational web systems, and IoT/device integrations. Comfortable collaborating across teams and shipping stable releases to production.",
