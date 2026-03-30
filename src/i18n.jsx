@@ -43,7 +43,7 @@ const DICT = {
     about: {
       title: "Tentang Saya",
       subtitle:
-        "Saya Software Engineer berbasis di Bekasi yang fokus pada pengembangan aplikasi mobile, web system, dan integrasi IoT.",
+        "Saya Software Engineer yang fokus pada pengembangan aplikasi mobile, web system, dan integrasi IoT.",
       whatTitle: "What I do",
       whatBody:
         "Mengembangkan aplikasi mobile (Flutter/React Native), sistem web untuk kebutuhan operasional, dan integrasi perangkat/IoT. Terbiasa kolaborasi lintas tim dan memastikan rilis stabil sampai produksi.",
